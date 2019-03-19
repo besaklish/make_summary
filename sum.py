@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import argparse
 from rules import get_first_sentence
+from util import unescape
 
 parser = argparse.ArgumentParser(
     description='Make a summary from string'
@@ -8,15 +9,10 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument(
     'paper',
-    help='chunk of strings to be summarized'
+    help='a chunk of strings to be summarized'
 )
 
 args = parser.parse_args()
-
-
-def unescape(string):
-    """unescape string"""
-    return string.replace('\\n', '\n')
 
 
 def sum(paper):
