@@ -14,7 +14,7 @@ def get_first_sentence(paragraph):
     if quotation_mark_match:
         return quotation_mark_match.group()
 
-    first_sentence_match = first_sentence_re.match(paragraph).group()
+    first_sentence_match = first_sentence_re.match(paragraph)
     if not first_sentence_match:
         return None
 
