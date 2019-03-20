@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import argparse
 from rules import get_first_sentence
-from util import unescape
+from utils import unescape
 
 parser = argparse.ArgumentParser(
     description='Make a summary from string'
