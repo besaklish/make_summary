@@ -24,6 +24,6 @@ def sum(paper):
     # Concatenating paragraphs
     summary = ''
     for sentence in sentences_summary:
-        summary += sentence + '\n'
+        summary += sentence + '\n\n'
 
     return summary
