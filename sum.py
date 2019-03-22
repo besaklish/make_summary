@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from .rules import get_first_sentence, reduce_sentences
+from .utils import make_paragraphs
 from html import unescape
 
 
 def sum(paper):
     paper = unescape(paper)
-    paragraphs = [
-        paragraph for paragraph in paper.splitlines() if paragraph != ''
-    ]
+    paragraphs = make_paragraphs(paper)
 
     sentences_summary = []
     # Summarizing
