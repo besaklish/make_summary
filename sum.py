@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
+from html import unescape
+import json
+import os
+
 from .rules import get_first_sentence, reduce_sentences
 from .utils import make_paragraphs
-from html import unescape
 
 
 def sum(paper):
     paper = unescape(paper)
     paragraphs = make_paragraphs(paper)
+
+    print(__file__)
+    word_dict = {}
+    with open(os.path.join(os.path.dirname(__file__), 'words.json')) as f:
+        word_dict = json.load(f)
 
     sentences_summary = []
     # Summarizing
@@ -18,7 +26,7 @@ def sum(paper):
     # Remove irrelevant sentences
     sentences_summary = reduce_sentences(
         sentences_summary,
-        ['例えば']
+        word_dict['reduce_words']
         )
 
     # Concatenating paragraphs

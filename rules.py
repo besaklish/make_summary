@@ -57,3 +57,20 @@ def reduce_sentences(sentences, reduce_words):
                 break
 
     return sentences
+
+
+def get_important_sentences(sentences, important_words):
+    """
+    Return sentences which includes important_word
+    """
+    important_regexes = [re.compile(word) for word in important_words]
+    
+    important_sentences = []
+    for regex in important_regexes:
+        for sentence in sentences:
+            if regex.search(sentence):
+                important_sentences.append(sentence)
+                sentences.remove(sentence)
+                break
+    
+    return important_sentences
